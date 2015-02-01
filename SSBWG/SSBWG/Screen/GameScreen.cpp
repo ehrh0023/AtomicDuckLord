@@ -23,17 +23,9 @@ void Screen::GameScreen::UnloadScreen()
 	//Entity::getEntityManager().clear();
 }
 
-void Screen::GameScreen::Update(){
+void Screen::GameScreen::Update()
+{
 	Entity::getEntityManager().update();
-
-	if(System::getWindow().getKeyboard().keyHit(System::Key::LShift))
-		{
-			TitleScreen* titleScreen;
-			titleScreen = new TitleScreen();	
-			ScreenManager::getInstance().LoadScreen(titleScreen);//switch to the Game Screen
-		}
-
-
 }
 
 void Screen::GameScreen::Draw(System::Window& window)

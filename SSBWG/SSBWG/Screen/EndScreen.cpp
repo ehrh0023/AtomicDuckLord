@@ -17,6 +17,14 @@ Screen::EndScreen::~EndScreen(void)
 
 void Screen::EndScreen::LoadScreen()
 {
+	if(Entity::getEntityManager().getRed() == NULL || Entity::getEntityManager().getRed()->shouldRemoveThis())
+		if(Entity::getEntityManager().getBlue() == NULL || Entity::getEntityManager().getBlue()->shouldRemoveThis())
+			result = 3;
+		else
+			result = 1;
+	else if(Entity::getEntityManager().getBlue() == NULL || Entity::getEntityManager().getBlue()->shouldRemoveThis())
+		result = 2;
+	else result = 0;
 }
 
 void Screen::EndScreen::UnloadScreen()
@@ -37,4 +45,18 @@ void Screen::EndScreen::Draw(System::Window& window)
 {
 	Map::getMap().draw(System::getWindow());
 	Entity::getEntityManager().draw(window);
+	switch(result)
+	{
+	case 1:
+		window.drawText(Map::getMap().getPixelWidth()/2 - 100, 80, "Red Wins", 48);
+		break;
+	case 2:
+		window.drawText(Map::getMap().getPixelWidth()/2 - 100, 80, "Blue Wins", 48);
+		break;
+	case 3:
+		window.drawText(Map::getMap().getPixelWidth()/2 - 100, 120, "Duck Lord Wins", 48);
+		break;
+	default:
+		window.drawText(Map::getMap().getPixelWidth()/2 - 100, 80, "Sod Off", 48);
+	}
 }

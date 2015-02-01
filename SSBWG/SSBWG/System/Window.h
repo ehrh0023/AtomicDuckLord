@@ -40,8 +40,8 @@ namespace System
 
 		unsigned int GetHeight() const;
 
-		bool drawText(Vector2f position, std::string text, int size = 12, std::string font = "arial.tff");
-		bool drawText(float posX, float posY, std::string text, int size = 12, std::string font = "arial.tff");
+		bool drawText(Vector2f position, std::string text, int size = 12, std::string font = "arial.ttf");
+		bool drawText(float posX, float posY, std::string text, int size = 12, std::string font = "arial.ttf");
 		
 		bool drawRect(Rect rect);
 		bool drawRect(float posX, float posY, float width, float height);

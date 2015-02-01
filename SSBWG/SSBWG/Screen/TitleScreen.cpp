@@ -37,13 +37,12 @@ void Screen::TitleScreen::Update(){
 }
 
 void Screen::TitleScreen::Draw(System::Window &window){
-	
-
-	// Draw the string
-		//System::getWindow().drawText(200, 200, "Press Left Shift", 36, "arial.ttf");
 		Map::getMap().draw(System::getWindow());
 		
 		Entity::getEntityManager().draw(window);
 	
+	// Draw the string
+		//System::getWindow().drawText(200, 200, "Press Left Shift", 36, "arial.ttf");
+	window.drawText(Map::getMap().getPixelWidth()/2 - 300, 120, "Press The Any Key", 48, "arial.ttf");
 	
 }

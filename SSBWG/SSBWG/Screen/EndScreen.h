@@ -1,5 +1,5 @@
-#ifndef GAMESCREEN_H
-#define GAMESCREEN_H
+#ifndef ENDSCREEN_H
+#define ENDSCREEN_H
 
 #include "Screen.h"
 #include "../Entity/EntityManager.h"
@@ -19,7 +19,7 @@ namespace Screen
 		void Draw(System::Window &window);
 	private:
 		float timeOfDeath;
-
+		int result;
 	};
 }
 

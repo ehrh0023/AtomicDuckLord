@@ -58,7 +58,7 @@ int main()
 		// Clear screen
 		System::getWindow().clear();
 
-		System::getWindow().drawImage(image, Vector2f(0,0));		
+//		System::getWindow().drawImage(image, Vector2f(0,0));		
 		// Draw the sprite
 		Screen::ScreenManager::getInstance().Draw(System::getWindow());
 

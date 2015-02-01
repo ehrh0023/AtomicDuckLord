@@ -2,9 +2,10 @@
 #include "EntityManager.h"
 #include "../Map/Map.h"
 #include "../Screen/EndScreen.h"
+#include "../Screen/GameScreen.h"
 
 Entity::Nuke::Nuke(float centerX)
-	:Entity(centerX - 100, 0, 200, Map::getMap().getPixelHeight()),
+	:Entity(centerX -300, 0, 600, Map::getMap().getPixelHeight()),
 	image("duck.png")
 {
 	col = new Collision::AABBCollider(body, this);
@@ -23,8 +24,17 @@ void Entity::Nuke::update()
 
 	if(timeOfDeath <= System::Time::getInstance().time())
 	{
-		Screen::getScreenManager().LoadScreen(new Screen::EndScreen());
 		removeThis();
+		
+		if((getEntityManager().getRed() != NULL && !getEntityManager().getRed()->shouldRemoveThis()) 
+			&& (getEntityManager().getBlue() != NULL && !getEntityManager().getBlue()->shouldRemoveThis()))
+		{
+			Screen::getScreenManager().LoadScreen(new Screen::GameScreen());
+		}
+		else
+		{
+			Screen::getScreenManager().LoadScreen(new Screen::EndScreen());
+		}
 	}
 }
 
