@@ -47,7 +47,7 @@ namespace System
 		bool drawRect(float posX, float posY, float width, float height);
         
         bool drawSprite(Graphics::Sprite sprite, Vector2f position, int frame);
-		bool drawImage(Graphics::Image image, Vector2f position);
+		bool drawImage(Graphics::Image image, Vector2f position, float scaleX = 1.0, float scaleY = 1.0, float degrees = 0);
 
 		void clear();
 

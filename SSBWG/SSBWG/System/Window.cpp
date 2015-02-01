@@ -67,10 +67,12 @@ bool System::Window::drawSprite(Graphics::Sprite sprite,  Vector2f position, int
     return true;
 }
 
-bool System::Window::drawImage(Graphics::Image image, Vector2f position) 
+bool System::Window::drawImage(Graphics::Image image, Vector2f position, float scaleX, float scaleY, float degrees) 
 {
 	sf::Sprite sprite(image.img);
-	sprite.setPosition(position.x, position.y);
+	sprite.setPosition(position.x + (scaleX<0) * -scaleX * image.getWidth(), position.y + (scaleY<0) * -scaleY * image.getHeight());
+	sprite.setScale(scaleX, scaleY);
+//	sprite.setRotation(degrees);
 	window.draw(sprite);
     return true;
 }

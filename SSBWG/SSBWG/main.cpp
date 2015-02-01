@@ -32,6 +32,8 @@ int main()
 	System::Time& timer = System::Time::getInstance();
 	Graphics::Image image("cute_image.png");
 
+	srand(time(NULL));
+
 	// Start the game loop
 	while (System::Window::getInstance().isOpen())
 	{
@@ -58,7 +60,6 @@ int main()
 		// Clear screen
 		System::getWindow().clear();
 
-//		System::getWindow().drawImage(image, Vector2f(0,0));		
 		// Draw the sprite
 		Screen::ScreenManager::getInstance().Draw(System::getWindow());
 

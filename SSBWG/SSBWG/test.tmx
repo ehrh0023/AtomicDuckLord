@@ -11,7 +11,7 @@
  </tileset>
  <layer name="collision" width="48" height="27">
   <data encoding="base64" compression="zlib">
-   eJztlsEJAAAQguL2H/rGCEPBv7+6JAeXiv1d7O9ifxf7u6z0U/aY/ifs70L7p/R/bf9Gv6qq7vmIlgRp
+   eJztlsEJADAIxMT9h+4QR9XTBPKVPKQ1IyLNdYX+Xujv5Ur/r/dLnXulfypb+l3+Y/d7oqq/eu62/in7pN7V9GvQj4iIW30DkQTB
   </data>
  </layer>
  <layer name="spawn" width="48" height="27">
@@ -21,7 +21,7 @@
  </layer>
  <layer name="floor" width="48" height="27">
   <data encoding="base64" compression="zlib">
-   eJztlzEKACAMxPr/p+mn3KuDg3g9TSB7QAttj4huriv0a6FfC/1a6NfySn9LViV3uu0T7vvQL/1V5mH3v1d9D/f7gP71PNzyVD8iIs4O69G/Hg==
+   eJzt10EOgCAMBMD+/20qR+NvjAcTYwILZGvB7GHPTGhpSjKz5JjVOdcZh2N2x8gvv/z/928gvf4FhOVHM77Xj2a7+mcOf0s/R/rf7+P2t/RzpD+3/7D9z1q2zJNR/Ln98ys/8z2w+73Gz6wH+77ln8+P9p9S0I5TCss/+v9Xfvnllz/CfwKs6i25
   </data>
  </layer>
 </map>

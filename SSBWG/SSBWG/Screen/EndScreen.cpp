@@ -5,7 +5,7 @@
 
 Screen::EndScreen::EndScreen(void)
 {
-	timeOfDeath = System::Time::getInstance().time() + 16;
+	timeOfDeath = System::Time::getInstance().time() + 3;
 }
 
 

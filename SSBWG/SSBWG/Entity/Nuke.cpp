@@ -10,7 +10,7 @@ Entity::Nuke::Nuke(float centerX)
 {
 	col = new Collision::AABBCollider(body, this);
 
-	timeOfDeath = System::Time::getInstance().time() + 2.2;
+	timeOfDeath = System::Time::getInstance().time() + 1.4;
 	ghost = true;
 }
 

@@ -6,13 +6,17 @@ Entity::Player::Player(float posX,float posY,float width,float height, Group::Gr
 	:Entity(posX, posY, width, height)
 {
 	col = new Collision::AABBCollider(body, this);
-	maxSpeed = 300;
+	maxSpeed = 420;
 	group = team;
 	if(group == Group::red)
 		img.loadFromFile("red.png");
 	else
 		img.loadFromFile("blue.png");
 
+	if(group == Group::red)
+		heading.x = Direction::right;
+	else
+		heading.x = Direction::left;
 }
 
 void Entity::Player::update()
@@ -27,10 +31,12 @@ void Entity::Player::update()
 		if(keyboard.keyHeld(System::Key::A))
 		{
 			unscaledVelocity.x -= maxSpeed;
+			heading.x = Direction::left;
 		}
 		if(keyboard.keyHeld(System::Key::D))
 		{
 			unscaledVelocity.x += maxSpeed;
+			heading.x = Direction::right;
 		}
 		if(static_cast<Collision::AABBCollider*>(col)->getCollideDown())
 		{
@@ -44,13 +50,15 @@ void Entity::Player::update()
 	}
 	else if(group == Group::blue)
 	{
-		if(keyboard.keyHeld(System::Key::J))
-		{
-			unscaledVelocity.x -= maxSpeed;
-		}
 		if(keyboard.keyHeld(System::Key::L))
 		{
 			unscaledVelocity.x += maxSpeed;
+			heading.x = Direction::right;
+		}
+		if(keyboard.keyHeld(System::Key::J))
+		{
+			unscaledVelocity.x -= maxSpeed;
+			heading.x = Direction::left;
 		}
 		if(static_cast<Collision::AABBCollider*>(col)->getCollideDown())
 		{
@@ -71,7 +79,7 @@ void Entity::Player::update()
 void Entity::Player::draw(System::Window& window)
 {
 	//window.drawRect(body);
-	window.drawImage(img, getPosition());
+	window.drawImage(img, getPosition(), heading.x, 1.0);
 }
 
 void Entity::Player::onCollideLeft(Entity* other) 

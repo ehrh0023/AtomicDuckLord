@@ -33,8 +33,8 @@ int Map::Map::loadMap(std::string fileName)
 
 void Map::Map::draw(System::Window& window)
 {
-	drawCollisionLayer(window);
-	/*
+	//drawCollisionLayer(window);
+	
 	const Tmx::Layer* layer = drawLayers[0];
 
 	if(layer != NULL)
@@ -51,7 +51,7 @@ void Map::Map::draw(System::Window& window)
 				
 			}
 		}
-	}*/
+	}
 }
 
 void Map::Map::collide(Entity::Entity* entity)

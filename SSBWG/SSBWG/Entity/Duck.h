@@ -12,6 +12,7 @@ namespace Entity
 		Graphics::Image image;
 		float jumpPower;
 		float timeOfDeath;
+		float rotation;
 	
 	public:
 		Duck(float posX,float posY,float width,float height);
