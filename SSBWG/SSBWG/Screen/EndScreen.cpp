@@ -21,9 +21,9 @@ void Screen::EndScreen::LoadScreen()
 		if(Entity::getEntityManager().getBlue() == NULL || Entity::getEntityManager().getBlue()->shouldRemoveThis())
 			result = 3;
 		else
-			result = 1;
+			result = 2;
 	else if(Entity::getEntityManager().getBlue() == NULL || Entity::getEntityManager().getBlue()->shouldRemoveThis())
-		result = 2;
+		result = 1;
 	else result = 0;
 }
 

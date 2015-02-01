@@ -2,12 +2,14 @@
 #include "Entity.h"
 #include "../Collision/AABBCollider.h"
 #include "../System/Time.h"
+#include "../Graphics/Image.h"
 
 namespace Entity
 {
 	class Player : public Entity
 	{
 		Vector2f unscaledVelocity;
+		Graphics::Image img;
 	
 	public:
 		Player(float posX,float posY,float width,float height, Group::Group team);

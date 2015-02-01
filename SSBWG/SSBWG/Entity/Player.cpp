@@ -8,6 +8,11 @@ Entity::Player::Player(float posX,float posY,float width,float height, Group::Gr
 	col = new Collision::AABBCollider(body, this);
 	maxSpeed = 300;
 	group = team;
+	if(group == Group::red)
+		img.loadFromFile("red.png");
+	else
+		img.loadFromFile("blue.png");
+
 }
 
 void Entity::Player::update()
@@ -65,7 +70,8 @@ void Entity::Player::update()
 
 void Entity::Player::draw(System::Window& window)
 {
-	window.drawRect(body);
+	//window.drawRect(body);
+	window.drawImage(img, getPosition());
 }
 
 void Entity::Player::onCollideLeft(Entity* other) 
