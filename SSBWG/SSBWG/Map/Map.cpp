@@ -19,10 +19,14 @@ int Map::Map::loadMap(std::string fileName)
 	{
 		if(map.GetLayer(i)->GetName() == "collision")
 			colLayer = map.GetLayer(i);
-		if(map.GetLayer(i)->GetName() == "spawn")
+		else if(map.GetLayer(i)->GetName() == "spawn")
 			spawnLayer = map.GetLayer(i);
+		else 
+			drawLayers.push_back(map.GetLayer(i));
 	}
-
+	
+	drawImage.setSpriteSheet("tiles.png");
+	drawImage.addFrames(getTileWidth(), getTileHeight());
 	spawnEntities();
 	return 0;
 }
@@ -30,6 +34,24 @@ int Map::Map::loadMap(std::string fileName)
 void Map::Map::draw(System::Window& window)
 {
 	drawCollisionLayer(window);
+	/*
+	const Tmx::Layer* layer = drawLayers[0];
+
+	if(layer != NULL)
+	{
+		for(int i = 0; i < layer->GetWidth(); i++)
+		{
+			for(int j = 0; j < layer->GetHeight(); j++)
+			{
+				if(layer->GetTile(i, j).id > 0)
+				{
+					Vector2f pos(i * getTileWidth(), j * getTileHeight());
+					window.drawSprite(drawImage, pos, layer->GetTile(i, j).id);
+				}
+				
+			}
+		}
+	}*/
 }
 
 void Map::Map::collide(Entity::Entity* entity)
@@ -118,9 +140,9 @@ void Map::Map::spawnEntities()
 
 	if(layer != NULL)
 	{
-		for(int i = 0; i < layer->GetWidth(); i++)
+		for(int j = 0; j < layer->GetHeight(); j++)
 		{
-			for(int j = 0; j < layer->GetHeight(); j++)
+			for(int i = 0; i < layer->GetWidth(); i++)
 			{
 				Entity::Player* player;
 				Entity::Duck* duck;
@@ -128,11 +150,11 @@ void Map::Map::spawnEntities()
 				switch(layer->GetTile(i, j).id)
 				{
 				case spawnTile::red:
-					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 25,35, Entity::Group::red);
+					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 50,80, Entity::Group::red);
 					Entity::getEntityManager().add(player);
 					break;
 				case spawnTile::blue:
-					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 25,35, Entity::Group::blue);
+					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 50,80, Entity::Group::blue);
 					Entity::getEntityManager().add(player);
 					break;
 				case spawnTile::duck:

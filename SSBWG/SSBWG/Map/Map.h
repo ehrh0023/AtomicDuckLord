@@ -38,7 +38,10 @@ namespace Map
 
 		const Tmx::Layer* spawnLayer;
 		const Tmx::Layer* colLayer;
+		std::vector<const Tmx::Layer*> drawLayers;
 		
+		Graphics::Sprite drawImage;
+
 	public:
 		static Map& getInstance()
 		{
@@ -69,7 +72,6 @@ namespace Map
 
 	private:
 		const Tmx::Layer* getCollisionLayer();
-
 		const Tmx::Layer* getSpawnLayer();
 
 		void drawCollisionLayer(System::Window& window);

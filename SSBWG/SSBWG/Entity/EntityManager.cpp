@@ -32,6 +32,12 @@ void Entity::EntityManager::update()
 
 void Entity::EntityManager::add(Entity* entity)
 {
+	if(dynamic_cast<Player*>(entity) != NULL)
+		if(entity->getGroup() == Group::red)
+			red = dynamic_cast<Player*>(entity);
+		else
+			blue = dynamic_cast<Player*>(entity);
+
 	entities.push_back(entity);
 }
 
@@ -56,9 +62,10 @@ void Entity::EntityManager::collide()
 
 			for (unsigned int j = i+1; j < entities.size(); j++)
 			{
-				entities[i]->collide(entities[j]);
-				/*
-				if(entities[j] != NULL && entities[i]->canOverlap(entities[j]))
+				if(entities[i]->canOverlap(entities[j]))
+					entities[i]->collide(entities[j]);
+				
+				/*else if(entities[j] != NULL && entities[i]->canOverlap(entities[j]))
 				{
 					if(entities[i]->overlaps(entities[j]))
 					{

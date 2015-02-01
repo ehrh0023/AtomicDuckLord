@@ -2,6 +2,7 @@
 #include <vector>
 #include "../System/Window.h"
 #include "Entity.h"
+#include "Player.h"
 
 namespace Entity
 {
@@ -9,6 +10,8 @@ namespace Entity
 	{
 	private:
 		std::vector<Entity*> entities;
+		Player* red;
+		Player* blue;
 
 	public:
 		//Entity Manager is a singleton class
@@ -23,7 +26,8 @@ namespace Entity
 		void add(Entity*);
 		void draw(System::Window& window);
 	                                                                                                                                                                                                                                         
-
+		Player* getRed() {return red;}                                                                                                                                                                                                   
+		Player* getBlue() {return blue;}
 
 	private:
 		EntityManager() {};

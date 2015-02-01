@@ -1,53 +1,44 @@
 #pragma once
 
 /**
- * Animated Sprite class based on source from LaurentGomila
+ * Sprite class based on source from LaurentGomila
  * https://github.com/LaurentGomila/SFML/wiki/Source:-AnimatedSprite
  */
 
-#include "Animation.h"
-#include "../System/Time.h"
-#include "../System/Window.h"
-#include "SFML\Graphics.hpp"
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include "../Utility/Vector2f.h"
+#include "../Utility/Rect.h"
+#include "Image.h"
 
+#ifndef WINDOW_H
+namespace System
+{
+	class Window;
+}
+#endif
 
-namespace Graphics {
-    class Sprite {
+namespace Graphics 
+{
+    class Sprite 
+	{
         public:
             Sprite();
-            Sprite(Animation& animation);
             
-            void update();
-            void play() { paused = false; }
-            void play(Animation& animation);
-			void setAnimation(Animation& animation) { anim = &animation; }
-            void pause() { paused = true; }
-            void resume() { paused = false; }
-            void stop();
-            void setLooped(bool loop) { looping = loop; }
+            void setSpriteSheet(Image& imgSheet);
+            void setSpriteSheet(const std::string& sheetName);
+            void addFrame(const Vector2f& startLoc, const Vector2f& offset);
+            void addFrame(const Rect& rec);
+            void addFrames(const Vector2f& offset);
+            void addFrames(int width, int height);
+            std::size_t getSize() const;
             
-            void disable() { active = false; }
-            void enable() { active = false; }
-            bool isActive() { return active; }
-            
-            Animation* getAnimation() const { return anim; }
-            bool isLooped() { return looping; }
-            bool isPaused() { return paused; }
-            
-            //virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const; 
+			Rect getFrame(int index) {return frames[index];}
+            Image* getSheet() { return tex; }
+            Rect getFrameRect(int index) { return frames[index]; }
         private:
-            friend class System::Window;
-            Animation* anim;
-            float frameTime;
-            float deltaTime;
-            float prevTime;
-            float ctime;
-            System::Time& currentTime;
-            int currentFrame;
-            bool paused;
-            bool looping;
-            bool active;
-            
-            sf::Sprite* getSprite();
+            std::vector<Rect> frames;
+            Image* tex;
+			friend class System::Window;
     };
 }

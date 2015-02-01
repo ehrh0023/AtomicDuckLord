@@ -57,17 +57,21 @@ bool System::Window::drawRect(float posX, float posY, float width, float height)
 	return true;
 }
 
-bool System::Window::drawSprite(Graphics::Sprite sprite) 
+bool System::Window::drawSprite(Graphics::Sprite sprite,  Vector2f position, int frame) 
 {
-    window.draw(*(sprite.getSprite()));
+	sf::Sprite sp(sprite.tex->img);
+	Rect r = sprite.getFrame(frame);
+	sp.setTextureRect(sf::IntRect(r.getLeft(), r.getTop(), r.getWidth(), r.getHeight()));
+	sp.setPosition(position.x, position.y);
+	window.draw(sp);
     return true;
 }
 
 bool System::Window::drawImage(Graphics::Image image, Vector2f position) 
 {
-	//sf::Sprite sprite(image.img);
-	//sprite.setPosition(position.x, position.y);
-	//window.draw(sprite);
+	sf::Sprite sprite(image.img);
+	sprite.setPosition(position.x, position.y);
+	window.draw(sprite);
     return true;
 }
 

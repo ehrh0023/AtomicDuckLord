@@ -20,11 +20,11 @@
     <ClInclude Include="Entity\Duck.h" />
     <ClInclude Include="Entity\Entity.h" />
     <ClInclude Include="Entity\EntityManager.h" />
+    <ClInclude Include="Entity\Nuke.h" />
     <ClInclude Include="Entity\Player.h" />
-    <ClInclude Include="Graphics\Animation.h" />
+    <ClInclude Include="Graphics\Sprite.h" />
     <ClInclude Include="Graphics\Color.h" />
     <ClInclude Include="Graphics\Image.h" />
-    <ClInclude Include="Graphics\Sprite.h" />
     <ClInclude Include="lua\lapi.h" />
     <ClInclude Include="lua\lauxlib.h" />
     <ClInclude Include="lua\lcode.h" />
@@ -82,6 +82,7 @@
     <ClInclude Include="Map\zlib\zconf.h" />
     <ClInclude Include="Map\zlib\zlib.h" />
     <ClInclude Include="Map\zlib\zutil.h" />
+    <ClInclude Include="Screen\EndScreen.h" />
     <ClInclude Include="Screen\GameScreen.h" />
     <ClInclude Include="Screen\Screen.h" />
     <ClInclude Include="Screen\ScreenManager.h" />
@@ -103,11 +104,11 @@
     <ClCompile Include="Entity\Duck.cpp" />
     <ClCompile Include="Entity\Entity.cpp" />
     <ClCompile Include="Entity\EntityManager.cpp" />
+    <ClCompile Include="Entity\Nuke.cpp" />
     <ClCompile Include="Entity\Player.cpp" />
-    <ClCompile Include="Graphics\Animation.cpp" />
+    <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="Graphics\Color.cpp" />
     <ClCompile Include="Graphics\Image.cpp" />
-    <ClCompile Include="Graphics\Sprite.cpp" />
     <ClCompile Include="lua\lapi.c" />
     <ClCompile Include="lua\lauxlib.c" />
     <ClCompile Include="lua\lbaselib.c" />
@@ -175,6 +176,7 @@
     <ClCompile Include="Map\zlib\trees.c" />
     <ClCompile Include="Map\zlib\uncompr.c" />
     <ClCompile Include="Map\zlib\zutil.c" />
+    <ClCompile Include="Screen\EndScreen.cpp" />
     <ClCompile Include="Screen\GameScreen.cpp" />
     <ClCompile Include="Screen\Screen.cpp" />
     <ClCompile Include="Screen\ScreenManager.cpp" />

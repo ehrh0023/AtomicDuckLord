@@ -64,9 +64,13 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		if (velY >= 0) 
 		{
 			if(parent != NULL)
-				parent->onCollideDown();
+				parent->onCollideDown(col->parent);
+			if(col->parent != NULL)
+				col->parent->onCollideDown(parent);
+
 			box.setBottom(top2);
 			collideDown = true;
+			col->collideUp = true;
 		}
 	}
 	
@@ -79,9 +83,12 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		if (velY <= 0) 
 		{
 			if(parent != NULL)
-				parent->onCollideUp();
+				parent->onCollideUp(col->parent);
+			if(col->parent != NULL)
+				col->parent->onCollideUp(parent);
 			box.setTop(bottom2);
 			collideUp = true;
+			col->collideDown = true;
 		}
 	}
 	
@@ -94,9 +101,12 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		if (velX >= 0) 
 		{
 			if(parent != NULL)
-				parent->onCollideRight();
+				parent->onCollideRight(col->parent);
+			if(col->parent != NULL)
+				col->parent->onCollideLeft(parent);
 			box.setRight(left2);
 			collideRight = true;
+			col->collideLeft = true;
 		}
 	}
 	
@@ -109,9 +119,12 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		if (velX <= 0) 
 		{
 			if(parent != NULL)
-				parent->onCollideLeft();
+				parent->onCollideLeft(col->parent);
+			if(col->parent != NULL)
+				col->parent->onCollideRight(parent);
 			box.setLeft(right2);
 			collideLeft = true;
+			col->collideRight = true;
 		}
 	}		
 }

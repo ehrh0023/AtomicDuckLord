@@ -6,14 +6,22 @@
  <tileset firstgid="101" name="spawn" tilewidth="40" tileheight="40">
   <image source="spawn.png" width="400" height="400"/>
  </tileset>
+ <tileset firstgid="201" name="tiles" tilewidth="40" tileheight="40">
+  <image source="tiles.png" width="400" height="400"/>
+ </tileset>
  <layer name="collision" width="48" height="27">
   <data encoding="base64" compression="zlib">
-   eJztlksOwCAIRI33P3S3jUFhYITaSOKi4eObiqW9tdYPX6fa5a+1y19rl7/W/sbPng+7343EyNKQMS8tNT17Z819qZ5Ue/StGDL/Z2Z50rMlL8Iv5Xv5NZ+lFsqMsHkZNYv0ieUOavtFLdLTWoy1V9EakTgpD43f8a2InKU1l8HO7L03lzWugp91fmx+5P4wNOzin3F575Hky2D39jEa/wUNI5vGXaVF04Tqr+JnrgdxiwP3
+   eJztlsEJAAAQguL2H/rGCEPBv7+6JAeXiv1d7O9ifxf7u6z0U/aY/ifs70L7p/R/bf9Gv6qq7vmIlgRp
   </data>
  </layer>
  <layer name="spawn" width="48" height="27">
   <data encoding="base64" compression="zlib">
-   eJztzgENACAMA7CrhftXgAmSEd4qaBW8q9MBGGSlA8BXdjoAAMA1B9zUATY=
+   eJztzjEJAAAIADDTav8GVhAfEbYEiwCA3/I6MFDXAQAAgKUGmL4Azg==
+  </data>
+ </layer>
+ <layer name="floor" width="48" height="27">
+  <data encoding="base64" compression="zlib">
+   eJztlzEKACAMxPr/p+mn3KuDg3g9TSB7QAttj4huriv0a6FfC/1a6NfySn9LViV3uu0T7vvQL/1V5mH3v1d9D/f7gP71PNzyVD8iIs4O69G/Hg==
   </data>
  </layer>
 </map>

@@ -10,6 +10,8 @@ namespace Entity
 	{
 		Vector2f unscaledVelocity;
 		Graphics::Image image;
+		float jumpPower;
+		float timeOfDeath;
 	
 	public:
 		Duck(float posX,float posY,float width,float height);
@@ -18,9 +20,9 @@ namespace Entity
 	
 		void draw(System::Window&);
 
-		void onCollideLeft();
-		void onCollideRight();
-		void onCollideUp();
-		void onCollideDown();
+		void onCollideLeft(Entity* other = NULL);
+		void onCollideRight(Entity* other = NULL);
+		void onCollideUp(Entity* other = NULL);
+		void onCollideDown(Entity* other = NULL);
 	};
 }

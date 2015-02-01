@@ -6,7 +6,7 @@ Entity::Player::Player(float posX,float posY,float width,float height, Group::Gr
 	:Entity(posX, posY, width, height)
 {
 	col = new Collision::AABBCollider(body, this);
-	maxSpeed = 200;
+	maxSpeed = 300;
 	group = team;
 }
 
@@ -31,7 +31,7 @@ void Entity::Player::update()
 		{
 			if(keyboard.keyHeld(System::Key::W))
 			{
-				unscaledVelocity.y -= 300;
+				unscaledVelocity.y -= 500;
 			}
 		}
 		else	
@@ -51,7 +51,7 @@ void Entity::Player::update()
 		{
 			if(keyboard.keyHeld(System::Key::I))
 			{
-				unscaledVelocity.y -= 300;
+				unscaledVelocity.y -= 500;
 			}
 		}
 		else	
@@ -68,7 +68,7 @@ void Entity::Player::draw(System::Window& window)
 	window.drawRect(body);
 }
 
-void Entity::Player::onCollideLeft() 
+void Entity::Player::onCollideLeft(Entity* other) 
 {
 	if(velocity.x < 0) 
 	{
@@ -76,7 +76,7 @@ void Entity::Player::onCollideLeft()
 		unscaledVelocity.x = 0;
 	}
 }
-void Entity::Player::onCollideRight() 
+void Entity::Player::onCollideRight(Entity* other) 
 {
 	if(velocity.x > 0) 
 	{
@@ -84,7 +84,7 @@ void Entity::Player::onCollideRight()
 		unscaledVelocity.x = 0;
 	}
 }
-void Entity::Player::onCollideUp() 
+void Entity::Player::onCollideUp(Entity* other) 
 {
 	if(velocity.y < 0) 
 	{
@@ -92,7 +92,7 @@ void Entity::Player::onCollideUp()
 		unscaledVelocity.y = 0;
 	}
 }
-void Entity::Player::onCollideDown() 
+void Entity::Player::onCollideDown(Entity* other) 
 {
 	if(velocity.y > 0)
 	{ 

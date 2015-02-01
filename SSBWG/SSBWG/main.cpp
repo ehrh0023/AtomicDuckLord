@@ -30,6 +30,7 @@ int main()
 	
 
 	System::Time& timer = System::Time::getInstance();
+	Graphics::Image image("cute_image.png");
 
 	// Start the game loop
 	while (System::Window::getInstance().isOpen())
@@ -52,14 +53,12 @@ int main()
 		// fps calculation
 		//std::cout << 1/timer.unscaledDeltaTime() << std::endl;
 
-		
-
 		Screen::ScreenManager::getInstance().Update();
 
 		// Clear screen
 		System::getWindow().clear();
 
-		
+		System::getWindow().drawImage(image, Vector2f(0,0));		
 		// Draw the sprite
 		Screen::ScreenManager::getInstance().Draw(System::getWindow());
 

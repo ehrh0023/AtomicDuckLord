@@ -16,8 +16,8 @@ namespace Entity
 		enum Group
 		{
 			none = 0,
-			red,
-			blue
+			red = 1,
+			blue = 2
 		};
 	}
 
@@ -55,10 +55,10 @@ namespace Entity
 
 		virtual void hitWith(Entity* otherEntity) {}
 	
-		virtual void onCollideLeft() {if(velocity.x < 0) velocity.x = 0;}
-		virtual void onCollideRight() {if(velocity.x > 0) velocity.x = 0;}
-		virtual void onCollideUp() {if(velocity.y < 0) velocity.y = 0;}
-		virtual void onCollideDown() {if(velocity.y > 0) velocity.y = 0;}
+		virtual void onCollideLeft(Entity* other = NULL) {if(velocity.x < 0) velocity.x = 0;}
+		virtual void onCollideRight(Entity* other = NULL) {if(velocity.x > 0) velocity.x = 0;}
+		virtual void onCollideUp(Entity* other = NULL) {if(velocity.y < 0) velocity.y = 0;}
+		virtual void onCollideDown(Entity* other = NULL) {if(velocity.y > 0) velocity.y = 0;}
 		virtual void collideWith(Entity*);
 
 		virtual bool containsPoint(Vector2f);

@@ -1,4 +1,5 @@
 #include "GameScreen.h"
+#include "../Entity/Duck.h"
 
 
 Screen::GameScreen::GameScreen(void)
@@ -13,14 +14,13 @@ Screen::GameScreen::~GameScreen(void)
 
 
 void Screen::GameScreen::LoadScreen(){
-	//make all entities for this screen and then put them into the entity manager
-	Map::getMap().loadMap("test.tmx");
+	Entity::Duck* duck = new Entity::Duck(Map::getMap().getPixelWidth()/2 - 19, 160, 38,40);
+	Entity::getEntityManager().add(duck);
 }
 
-void Screen::GameScreen::UnloadScreen(){
-
-	Entity::getEntityManager().clear();
-
+void Screen::GameScreen::UnloadScreen()
+{
+	//Entity::getEntityManager().clear();
 }
 
 void Screen::GameScreen::Update(){

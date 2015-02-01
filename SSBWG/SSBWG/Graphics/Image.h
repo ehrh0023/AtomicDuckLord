@@ -4,6 +4,13 @@
 #include "Color.h"
 #include <SFML/Graphics/Texture.hpp>
 
+#ifndef WINDOW_H
+namespace System
+{
+	class Window;
+}
+#endif
+
 namespace Graphics
 {
 	class Image {
@@ -30,6 +37,7 @@ namespace Graphics
 			const unsigned char* getPixelsPtr() const;
 		private:
 			sf::Texture img;
+            friend class System::Window;
             friend class Sprite;
 	};
 }
