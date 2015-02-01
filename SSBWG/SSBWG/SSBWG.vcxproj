@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="AI\CompositeGoal.h" />
+    <ClInclude Include="AI\Goal.h" />
+    <ClInclude Include="Audio\Music.h" />
+    <ClInclude Include="Audio\Sound.h" />
+    <ClInclude Include="Collision\AABBCollider.h" />
+    <ClInclude Include="Collision\Collider.h" />
+    <ClInclude Include="Entity\Duck.h" />
+    <ClInclude Include="Entity\Entity.h" />
+    <ClInclude Include="Entity\EntityManager.h" />
+    <ClInclude Include="Entity\Player.h" />
+    <ClInclude Include="Graphics\Animation.h" />
+    <ClInclude Include="Graphics\Color.h" />
+    <ClInclude Include="Graphics\Image.h" />
+    <ClInclude Include="Graphics\Sprite.h" />
+    <ClInclude Include="lua\lapi.h" />
+    <ClInclude Include="lua\lauxlib.h" />
+    <ClInclude Include="lua\lcode.h" />
+    <ClInclude Include="lua\lctype.h" />
+    <ClInclude Include="lua\ldebug.h" />
+    <ClInclude Include="lua\ldo.h" />
+    <ClInclude Include="lua\lfunc.h" />
+    <ClInclude Include="lua\lgc.h" />
+    <ClInclude Include="lua\llex.h" />
+    <ClInclude Include="lua\llimits.h" />
+    <ClInclude Include="lua\lmem.h" />
+    <ClInclude Include="lua\lobject.h" />
+    <ClInclude Include="lua\lopcodes.h" />
+    <ClInclude Include="lua\lparser.h" />
+    <ClInclude Include="lua\lstate.h" />
+    <ClInclude Include="lua\lstring.h" />
+    <ClInclude Include="lua\ltable.h" />
+    <ClInclude Include="lua\ltm.h" />
+    <ClInclude Include="lua\lua.h" />
+    <ClInclude Include="lua\lua.hpp" />
+    <ClInclude Include="lua\luaconf.h" />
+    <ClInclude Include="lua\lualib.h" />
+    <ClInclude Include="lua\lundump.h" />
+    <ClInclude Include="lua\lvm.h" />
+    <ClInclude Include="lua\lzio.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="Map\base64\base64.h" />
+    <ClInclude Include="Map\Map.h" />
+    <ClInclude Include="Map\tinyxml\tinystr.h" />
+    <ClInclude Include="Map\tinyxml\tinyxml.h" />
+    <ClInclude Include="Map\Tmx.h" />
+    <ClInclude Include="Map\TmxEllipse.h" />
+    <ClInclude Include="Map\TmxImage.h" />
+    <ClInclude Include="Map\TmxImageLayer.h" />
+    <ClInclude Include="Map\TmxLayer.h" />
+    <ClInclude Include="Map\TmxMap.h" />
+    <ClInclude Include="Map\TmxMapTile.h" />
+    <ClInclude Include="Map\TmxObject.h" />
+    <ClInclude Include="Map\TmxObjectGroup.h" />
+    <ClInclude Include="Map\TmxPoint.h" />
+    <ClInclude Include="Map\TmxPolygon.h" />
+    <ClInclude Include="Map\TmxPolyline.h" />
+    <ClInclude Include="Map\TmxPropertySet.h" />
+    <ClInclude Include="Map\TmxTile.h" />
+    <ClInclude Include="Map\TmxTileset.h" />
+    <ClInclude Include="Map\TmxUtil.h" />
+    <ClInclude Include="Map\zlib\crc32.h" />
+    <ClInclude Include="Map\zlib\deflate.h" />
+    <ClInclude Include="Map\zlib\gzguts.h" />
+    <ClInclude Include="Map\zlib\inffast.h" />
+    <ClInclude Include="Map\zlib\inffixed.h" />
+    <ClInclude Include="Map\zlib\inflate.h" />
+    <ClInclude Include="Map\zlib\inftrees.h" />
+    <ClInclude Include="Map\zlib\trees.h" />
+    <ClInclude Include="Map\zlib\zconf.h" />
+    <ClInclude Include="Map\zlib\zlib.h" />
+    <ClInclude Include="Map\zlib\zutil.h" />
+    <ClInclude Include="Screen\GameScreen.h" />
+    <ClInclude Include="Screen\Screen.h" />
+    <ClInclude Include="Screen\ScreenManager.h" />
+    <ClInclude Include="Screen\TitleScreen.h" />
+    <ClInclude Include="System\Keyboard.h" />
+    <ClInclude Include="System\Mouse.h" />
+    <ClInclude Include="System\Time.h" />
+    <ClInclude Include="System\Window.h" />
+    <ClInclude Include="Utility\randf.h" />
+    <ClInclude Include="Utility\Rect.h" />
+    <ClInclude Include="Utility\Vector2f.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="AI\CompositeGoal.cpp" />
+    <ClCompile Include="AI\Goal.cpp" />
+    <ClCompile Include="Audio\Music.cpp" />
+    <ClCompile Include="Audio\Sound.cpp" />
+    <ClCompile Include="Collision\AABBCollider.cpp" />
+    <ClCompile Include="Entity\Duck.cpp" />
+    <ClCompile Include="Entity\Entity.cpp" />
+    <ClCompile Include="Entity\EntityManager.cpp" />
+    <ClCompile Include="Entity\Player.cpp" />
+    <ClCompile Include="Graphics\Animation.cpp" />
+    <ClCompile Include="Graphics\Color.cpp" />
+    <ClCompile Include="Graphics\Image.cpp" />
+    <ClCompile Include="Graphics\Sprite.cpp" />
+    <ClCompile Include="lua\lapi.c" />
+    <ClCompile Include="lua\lauxlib.c" />
+    <ClCompile Include="lua\lbaselib.c" />
+    <ClCompile Include="lua\lbitlib.c" />
+    <ClCompile Include="lua\lcode.c" />
+    <ClCompile Include="lua\lcorolib.c" />
+    <ClCompile Include="lua\lctype.c" />
+    <ClCompile Include="lua\ldblib.c" />
+    <ClCompile Include="lua\ldebug.c" />
+    <ClCompile Include="lua\ldo.c" />
+    <ClCompile Include="lua\ldump.c" />
+    <ClCompile Include="lua\lfunc.c" />
+    <ClCompile Include="lua\lgc.c" />
+    <ClCompile Include="lua\linit.c" />
+    <ClCompile Include="lua\liolib.c" />
+    <ClCompile Include="lua\llex.c" />
+    <ClCompile Include="lua\lmathlib.c" />
+    <ClCompile Include="lua\lmem.c" />
+    <ClCompile Include="lua\loadlib.c" />
+    <ClCompile Include="lua\lobject.c" />
+    <ClCompile Include="lua\lopcodes.c" />
+    <ClCompile Include="lua\loslib.c" />
+    <ClCompile Include="lua\lparser.c" />
+    <ClCompile Include="lua\lstate.c" />
+    <ClCompile Include="lua\lstring.c" />
+    <ClCompile Include="lua\lstrlib.c" />
+    <ClCompile Include="lua\ltable.c" />
+    <ClCompile Include="lua\ltablib.c" />
+    <ClCompile Include="lua\ltm.c" />
+    <ClCompile Include="lua\lundump.c" />
+    <ClCompile Include="lua\lvm.c" />
+    <ClCompile Include="lua\lzio.c" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Map\base64\base64.cpp" />
+    <ClCompile Include="Map\Map.cpp" />
+    <ClCompile Include="Map\tinyxml\tinystr.cpp" />
+    <ClCompile Include="Map\tinyxml\tinyxml.cpp" />
+    <ClCompile Include="Map\tinyxml\tinyxmlerror.cpp" />
+    <ClCompile Include="Map\tinyxml\tinyxmlparser.cpp" />
+    <ClCompile Include="Map\TmxEllipse.cpp" />
+    <ClCompile Include="Map\TmxImage.cpp" />
+    <ClCompile Include="Map\TmxImageLayer.cpp" />
+    <ClCompile Include="Map\TmxLayer.cpp" />
+    <ClCompile Include="Map\TmxMap.cpp" />
+    <ClCompile Include="Map\TmxObject.cpp" />
+    <ClCompile Include="Map\TmxObjectGroup.cpp" />
+    <ClCompile Include="Map\TmxPolygon.cpp" />
+    <ClCompile Include="Map\TmxPolyline.cpp" />
+    <ClCompile Include="Map\TmxPropertySet.cpp" />
+    <ClCompile Include="Map\TmxTile.cpp" />
+    <ClCompile Include="Map\TmxTileset.cpp" />
+    <ClCompile Include="Map\TmxUtil.cpp" />
+    <ClCompile Include="Map\zlib\adler32.c" />
+    <ClCompile Include="Map\zlib\compress.c" />
+    <ClCompile Include="Map\zlib\crc32.c" />
+    <ClCompile Include="Map\zlib\deflate.c" />
+    <ClCompile Include="Map\zlib\gzclose.c" />
+    <ClCompile Include="Map\zlib\gzlib.c" />
+    <ClCompile Include="Map\zlib\gzread.c" />
+    <ClCompile Include="Map\zlib\gzwrite.c" />
+    <ClCompile Include="Map\zlib\infback.c" />
+    <ClCompile Include="Map\zlib\inffast.c" />
+    <ClCompile Include="Map\zlib\inflate.c" />
+    <ClCompile Include="Map\zlib\inftrees.c" />
+    <ClCompile Include="Map\zlib\trees.c" />
+    <ClCompile Include="Map\zlib\uncompr.c" />
+    <ClCompile Include="Map\zlib\zutil.c" />
+    <ClCompile Include="Screen\GameScreen.cpp" />
+    <ClCompile Include="Screen\Screen.cpp" />
+    <ClCompile Include="Screen\ScreenManager.cpp" />
+    <ClCompile Include="Screen\TitleScreen.cpp" />
+    <ClCompile Include="System\Keyboard.cpp" />
+    <ClCompile Include="System\Mouse.cpp" />
+    <ClCompile Include="System\Time.cpp" />
+    <ClCompile Include="System\Window.cpp" />
+    <ClCompile Include="Utility\randf.cpp" />
+    <ClCompile Include="Utility\Rect.cpp" />
+    <ClCompile Include="Utility\Vector2f.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="cute_image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="nice_music.ogg" />
+    <None Include="test.tmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{D54DCDA2-2157-4455-A0C5-54DE3AD92A78}</ProjectGuid>
+    <RootNamespace>SSBWG</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v110</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\SFML-2.1\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\SFML-2.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window-d.lib;sfml-system-d.lib;sfml-network-d.lib;sfml-main-d.lib;sfml-graphics-d.lib;sfml-audio-d.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>C:\Program Files (x86)\SFML-2.1\include</AdditionalIncludeDirectories>
+      <ShowIncludes>false</ShowIncludes>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Program Files (x86)\SFML-2.1\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-window.lib;sfml-system.lib;sfml-network.lib;sfml-main.lib;sfml-graphics.lib;sfml-audio.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
