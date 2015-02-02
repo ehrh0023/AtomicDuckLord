@@ -3,9 +3,10 @@
 #include "../Map/Map.h"
 #include "../Screen/EndScreen.h"
 #include "../Screen/GameScreen.h"
+#include <stdio.h>
 
 Entity::Nuke::Nuke(float centerX)
-	:Entity(centerX -300, 0, 600, Map::getMap().getPixelHeight()),
+	:Entity(centerX -450, 0, 900, Map::getMap().getPixelHeight()),
 	image("duck.png")
 {
 	col = new Collision::AABBCollider(body, this);
@@ -16,10 +17,10 @@ Entity::Nuke::Nuke(float centerX)
 
 void Entity::Nuke::update()
 {	
-	if(EntityManager::getInstance().getBlue()->getBody().overlaps(getBody()))
+	if(EntityManager::getInstance().getBlue() != NULL && EntityManager::getInstance().getBlue()->getBody().overlaps(getBody()))
 		EntityManager::getInstance().getBlue()->removeThis();
 	
-	if(EntityManager::getInstance().getRed()->getBody().overlaps(getBody()))
+	if(EntityManager::getInstance().getRed() != NULL && EntityManager::getInstance().getRed()->getBody().overlaps(getBody()))
 		EntityManager::getInstance().getRed()->removeThis();
 
 	if(timeOfDeath <= System::Time::getInstance().time())

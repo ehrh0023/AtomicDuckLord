@@ -12,6 +12,7 @@
 #include "System/Time.h"
 
 #include "Map/Map.h"
+#include "Audio\Music.h"
 
 #include <iostream>
 
@@ -22,15 +23,19 @@ int main()
 
 	// Create the main window
 	System::Window::getInstance().initializeFullScreen(1920, 1080, "SFML window");
-
 	
+	Map::getMap().loadMap("test.tmx");
+
 	Screen::TitleScreen* titleScreen;
 	titleScreen = new Screen::TitleScreen();	
 	Screen::ScreenManager::getInstance().Initialize(titleScreen); //start at the titleScreen
-	
 
 	System::Time& timer = System::Time::getInstance();
 	Graphics::Image image("cute_image.png");
+
+	Audio::Music m("Quick_Steps.ogg");
+	m.setLooping(true);
+	m.Play();
 
 	srand(time(NULL));
 

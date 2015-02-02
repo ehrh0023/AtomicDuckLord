@@ -27,7 +27,7 @@ int Map::Map::loadMap(std::string fileName)
 	
 	drawImage.setSpriteSheet("tiles.png");
 	drawImage.addFrames(getTileWidth(), getTileHeight());
-	spawnEntities();
+	//spawnEntities();
 	return 0;
 }
 

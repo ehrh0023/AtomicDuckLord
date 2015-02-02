@@ -69,14 +69,13 @@ namespace Map
 		
 		colTile::cType getCollisionTile(Vector2f);
 		colTile::cType getCollisionTile(int x, int y);
-
+		
+		void spawnEntities();
 	private:
 		const Tmx::Layer* getCollisionLayer();
 		const Tmx::Layer* getSpawnLayer();
 
 		void drawCollisionLayer(System::Window& window);
-
-		void spawnEntities();
 	};
 
 	static Map& getMap()

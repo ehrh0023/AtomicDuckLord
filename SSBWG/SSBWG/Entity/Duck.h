@@ -3,6 +3,7 @@
 #include "../Collision/AABBCollider.h"
 #include "../System/Time.h"
 #include "../Graphics/Image.h"
+#include "../Audio/Sound.h"
 
 namespace Entity
 {
@@ -13,6 +14,8 @@ namespace Entity
 		float jumpPower;
 		float timeOfDeath;
 		float rotation;
+//		Audio::Sound bounceSound;
+//		Audio::Sound hitSound;
 	
 	public:
 		Duck(float posX,float posY,float width,float height);

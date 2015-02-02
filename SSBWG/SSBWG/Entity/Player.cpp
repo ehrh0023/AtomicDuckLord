@@ -6,7 +6,7 @@ Entity::Player::Player(float posX,float posY,float width,float height, Group::Gr
 	:Entity(posX, posY, width, height)
 {
 	col = new Collision::AABBCollider(body, this);
-	maxSpeed = 420;
+	maxSpeed = 450;
 	group = team;
 	if(group == Group::red)
 		img.loadFromFile("red.png");
@@ -42,11 +42,11 @@ void Entity::Player::update()
 		{
 			if(keyboard.keyHeld(System::Key::W))
 			{
-				unscaledVelocity.y -= 500;
+				unscaledVelocity.y -= 600;
 			}
 		}
 		else	
-			unscaledVelocity.y += 500 * System::Time::getInstance().unscaledDeltaTime();
+			unscaledVelocity.y += 550 * System::Time::getInstance().unscaledDeltaTime();
 	}
 	else if(group == Group::blue)
 	{
@@ -64,11 +64,11 @@ void Entity::Player::update()
 		{
 			if(keyboard.keyHeld(System::Key::I))
 			{
-				unscaledVelocity.y -= 500;
+				unscaledVelocity.y -= 600;
 			}
 		}
 		else	
-			unscaledVelocity.y += 500 * System::Time::getInstance().unscaledDeltaTime();
+			unscaledVelocity.y += 550 * System::Time::getInstance().unscaledDeltaTime();
 	}
 
 	velocity = unscaledVelocity * System::Time::getInstance().unscaledDeltaTime();

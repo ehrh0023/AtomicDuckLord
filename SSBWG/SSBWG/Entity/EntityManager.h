@@ -26,8 +26,8 @@ namespace Entity
 		void add(Entity*);
 		void draw(System::Window& window);
 	                                                                                                                                                                                                                                         
-		Player* getRed() {return red;}                                                                                                                                                                                                   
-		Player* getBlue() {return blue;}
+		Player* getRed();                                                                                                                                                                                                
+		Player* getBlue();
 
 	private:
 		EntityManager() {};

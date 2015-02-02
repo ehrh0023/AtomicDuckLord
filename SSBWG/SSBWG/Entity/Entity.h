@@ -48,7 +48,7 @@ namespace Entity
 	public:
 		Entity(float posX, float posY, float width, float height);
 		Entity(Rect rectBody);
-		virtual ~Entity() {}
+		virtual ~Entity() { delete col; }
 
 		virtual void update();
 		virtual void draw(System::Window& window);

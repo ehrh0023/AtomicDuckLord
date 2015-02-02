@@ -2,6 +2,18 @@
 #include "../Map/Map.h"
 #include <iostream>
 
+                                                                                                                                                                                                                       
+Entity::Player* Entity::EntityManager::getRed() 
+{
+	return red;
+}
+
+Entity::Player* Entity::EntityManager::getBlue() 
+{
+	return blue;
+}
+
+
 void Entity::EntityManager::clear()
 {
 	for(unsigned int i = 0; i < entities.size(); i++)
@@ -88,10 +100,11 @@ void Entity::EntityManager::cull()
 			{
 				if(entities[i] == red)
 					red == NULL;
-				else if(entities[i] == blue)
+				if(entities[i] == blue)
 					blue == NULL;
 				delete entities[i];
 				entities.erase(entities.begin() + i);
+				i--;
 			}
 		}
 	}

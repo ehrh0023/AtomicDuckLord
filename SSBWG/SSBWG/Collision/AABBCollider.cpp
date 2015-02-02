@@ -39,11 +39,18 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 {
 	float velX = 0;
 	float velY = 0;
+	float velX2 = 0;
+	float velY2 = 0;
 
 	if(parent != NULL)
 	{
 		velX = parent->getVelocity().x;
 		velY = parent->getVelocity().y;
+	}
+	if(col->parent != NULL)
+	{
+		velX2 = col->parent->getVelocity().x;
+		velY2 = col->parent->getVelocity().y;
 	}
 
 	float bottom1 = box.getBottom();
@@ -55,10 +62,10 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 	float right1 = box.getRight();
 	float right2 = col->box.getRight();
 
-	if ((bottom1 + 1 + velY> top2) &&
-		(top1 + velY < bottom2) &&
-		(right1 + velX > left2) &&
-		(left1 + velX < right2) &&
+	if ((bottom1 + 1 + velY> top2 + velY2) &&
+		(top1 + velY < bottom2 + velY2) &&
+		(right1 + velX > left2 + velX2) &&
+		(left1 + velX < right2 + velX2) &&
 		bottom1 <= top2) 
 	{ 
 		if (velY >= 0) 
@@ -74,10 +81,10 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		}
 	}
 	
-	if ((bottom1 + velY > top2) &&
-		(top1 - 1 + velY < bottom2) &&
-		(right1 + velX > left2) &&
-		(left1 + velX < right2) &&
+	if ((bottom1 + velY > top2 + velY2) &&
+		(top1 - 1 + velY < bottom2 + velY2) &&
+		(right1 + velX > left2 + velX2) &&
+		(left1 + velX < right2 + velX2) &&
 		top1 >= bottom2) 
 	{ 
 		if (velY <= 0) 
@@ -92,10 +99,10 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		}
 	}
 	
-	if ((bottom1 + velY > top2) &&
-		(top1 + velY < bottom2) &&
-		(right1 + 1 + velX > left2) &&
-		(left1 + velX < right2) &&
+	if ((bottom1 + velY > top2 + velY2) &&
+		(top1 + velY < bottom2 + velY2) &&
+		(right1 + 1 + velX > left2 + velX2) &&
+		(left1 + velX < right2) + velX2 &&
 		right1 <= left2) 
 	{ 
 		if (velX >= 0) 
@@ -110,10 +117,10 @@ void Collision::AABBCollider::AABBCollision(AABBCollider* col)
 		}
 	}
 	
-	if ((bottom1 + velY > top2) &&
-		(top1 + velY < bottom2) &&
-		(right1 + velX > left2) &&
-		(left1 - 1 + velX < right2) &&
+	if ((bottom1 + velY > top2 + velY2) &&
+		(top1 + velY < bottom2 + velY2) &&
+		(right1 + velX > left2 + velX2) &&
+		(left1 - 1 + velX < right2 + velX2) &&
 		left1 >= right2) 
 	{ 
 		if (velX <= 0) 

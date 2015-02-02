@@ -58,14 +58,13 @@ void Entity::Duck::onCollideLeft(Entity* other)
 	if(other != NULL)
 	{
 		velocity.x = 0;
-		unscaledVelocity.x = -maxSpeed;
-	//	unscaledVelocity.x = maxSpeed;
+		unscaledVelocity.x = maxSpeed;
 		unscaledVelocity.y -= 2*jumpPower/3;
 	}
 	else if(velocity.x < 0) 
 	{
-		velocity.x = -velocity.x * .8;
-		unscaledVelocity.x = maxSpeed;// * .8;
+		velocity.x = 0;
+		unscaledVelocity.x = abs(unscaledVelocity.x * .75);
 		unscaledVelocity.y -= jumpPower/3;
 	}
 	heading.x = Direction::right;
@@ -75,41 +74,19 @@ void Entity::Duck::onCollideRight(Entity* other)
 	if(other != NULL)
 	{
 		velocity.x = 0;
-		unscaledVelocity.x = maxSpeed;
+		unscaledVelocity.x = -maxSpeed;
 		unscaledVelocity.y -= 2*jumpPower/3;
 	}
 	else if(velocity.x > 0) 
 	{
-		velocity.x = -velocity.x * .8;
-		unscaledVelocity.x = -maxSpeed;//unscaledVelocity.x;// * .8;
+		velocity.x = 0;
+		unscaledVelocity.x = -abs(unscaledVelocity.x * .75);
 		unscaledVelocity.y -= jumpPower/3;
 	}
 	
 	heading.x = Direction::left;
 }
 void Entity::Duck::onCollideUp(Entity* other) 
-{
-	if(other != NULL)
-	{
-		velocity.y = 0;
-		unscaledVelocity.y = jumpPower;
-		
-		if(getCenter().x > other->getCenter().x)
-		{
-			unscaledVelocity.x = maxSpeed;//2*maxSpeed/3;
-		}
-		else
-		{
-			unscaledVelocity.x = -maxSpeed;//2*maxSpeed/3;
-		}
-	}
-	else if(velocity.y < 0) 
-	{
-		velocity.y = -velocity.y * .6;
-		unscaledVelocity.y = -unscaledVelocity.y *.6;
-	}
-}
-void Entity::Duck::onCollideDown(Entity* other) 
 {
 	if(other != NULL)
 	{
@@ -125,9 +102,31 @@ void Entity::Duck::onCollideDown(Entity* other)
 			unscaledVelocity.x = -maxSpeed;//2*maxSpeed/3;
 		}
 	}
+	else if(velocity.y < 0) 
+	{
+		velocity.y = 0;
+		unscaledVelocity.y = abs(unscaledVelocity.y *.6);
+	}
+}
+void Entity::Duck::onCollideDown(Entity* other) 
+{
+	if(other != NULL)
+	{
+		velocity.y = 0;
+		unscaledVelocity.y = jumpPower;
+		
+		if(getCenter().x > other->getCenter().x)
+		{
+			unscaledVelocity.x = maxSpeed;//2*maxSpeed/3;
+		}
+		else
+		{
+			unscaledVelocity.x = -maxSpeed;//2*maxSpeed/3;
+		}
+	}
 	else if(velocity.y > 0)
 	{ 
-		velocity.y = -velocity.y * .8;
-		unscaledVelocity.y = -unscaledVelocity.y *.8;
+		velocity.y = 0;
+		unscaledVelocity.y = -abs(unscaledVelocity.y *.8);
 	}
 }
