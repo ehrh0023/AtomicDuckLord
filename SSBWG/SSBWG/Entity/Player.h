@@ -3,6 +3,7 @@
 #include "../Collision/AABBCollider.h"
 #include "../System/Time.h"
 #include "../Graphics/Image.h"
+#include "../Audio/Sound.h"
 
 namespace Entity
 {
@@ -10,6 +11,8 @@ namespace Entity
 	{
 		Vector2f unscaledVelocity;
 		Graphics::Image img;
+		Audio::Sound jumpSound;
+		Audio::Sound collideSound;
 	
 	public:
 		Player(float posX,float posY,float width,float height, Group::Group team);

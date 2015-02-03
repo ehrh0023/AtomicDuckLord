@@ -150,11 +150,11 @@ void Map::Map::spawnEntities()
 				switch(layer->GetTile(i, j).id)
 				{
 				case spawnTile::red:
-					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 50,80, Entity::Group::red);
+					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 45,80, Entity::Group::red);
 					Entity::getEntityManager().add(player);
 					break;
 				case spawnTile::blue:
-					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 50,80, Entity::Group::blue);
+					player = new Entity::Player(i*getTileWidth(), j*getTileHeight(), 45,80, Entity::Group::blue);
 					Entity::getEntityManager().add(player);
 					break;
 				case spawnTile::duck:

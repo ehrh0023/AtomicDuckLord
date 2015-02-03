@@ -21,6 +21,7 @@ namespace Audio
 		float getVolume();
 		void setPlayingOffset(float new_offset);
 		float getPlayingOffset();
+		bool isPlaying() {return sound.getStatus() == sf::Sound::Playing;}
 
 		float getDuration();
 

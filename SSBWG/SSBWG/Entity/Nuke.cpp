@@ -7,12 +7,15 @@
 
 Entity::Nuke::Nuke(float centerX)
 	:Entity(centerX -450, 0, 900, Map::getMap().getPixelHeight()),
-	image("duck.png")
+	image("nuke.png"),
+	sound("nuke.wav")
 {
 	col = new Collision::AABBCollider(body, this);
 
 	timeOfDeath = System::Time::getInstance().time() + 1.4;
 	ghost = true;
+
+	sound.Play();
 }
 
 void Entity::Nuke::update()
@@ -41,5 +44,5 @@ void Entity::Nuke::update()
 
 void Entity::Nuke::draw(System::Window& window)
 {
-	window.drawRect(getBody());
+	window.drawImage(image, getPosition(), 4, 4);
 }

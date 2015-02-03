@@ -1,9 +1,12 @@
 #include "Player.h"
 #include "EntityManager.h"
 #include "../Map/Map.h"
+#include "../Utility/randf.h"
 
 Entity::Player::Player(float posX,float posY,float width,float height, Group::Group team)
-	:Entity(posX, posY, width, height)
+	:Entity(posX, posY, width, height),
+	jumpSound((team == Group::red)? "red_jump.wav" : "blue_jump.wav"),
+	collideSound((team == Group::red)? "red_collide.wav" : "blue_collide.wav")
 {
 	col = new Collision::AABBCollider(body, this);
 	maxSpeed = 450;
@@ -43,6 +46,10 @@ void Entity::Player::update()
 			if(keyboard.keyHeld(System::Key::W))
 			{
 				unscaledVelocity.y -= 600;
+				
+				jumpSound.setPitch(randf(.7, 1.3));
+				jumpSound.setVolume(17);
+				jumpSound.Play();
 			}
 		}
 		else	
@@ -65,6 +72,9 @@ void Entity::Player::update()
 			if(keyboard.keyHeld(System::Key::I))
 			{
 				unscaledVelocity.y -= 600;
+				jumpSound.setPitch(randf(.7, 1.3));
+				jumpSound.setVolume(37);
+				jumpSound.Play();
 			}
 		}
 		else	
@@ -104,6 +114,12 @@ void Entity::Player::onCollideUp(Entity* other)
 	{
 		velocity.y = 0;
 		unscaledVelocity.y = 0;
+
+		if(other == NULL)
+		{
+			collideSound.setPitch(randf(.7, 1.3));
+			collideSound.Play();
+		}
 	}
 }
 void Entity::Player::onCollideDown(Entity* other) 
@@ -112,6 +128,12 @@ void Entity::Player::onCollideDown(Entity* other)
 	{ 
 		velocity.y = 0;
 		unscaledVelocity.y = 0;
+
+		if(other == NULL)
+		{
+			collideSound.setPitch(randf(.7, 1.3));
+			collideSound.Play();
+		}
 	}
 }
 

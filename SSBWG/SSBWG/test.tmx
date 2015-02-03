@@ -9,19 +9,19 @@
  <tileset firstgid="201" name="tiles" tilewidth="40" tileheight="40">
   <image source="tiles.png" width="400" height="400"/>
  </tileset>
- <layer name="collision" width="48" height="27">
+ <layer name="collision" width="48" height="27" opacity="0.6">
   <data encoding="base64" compression="zlib">
-   eJztlsEJADAIxMT9h+4QR9XTBPKVPKQ1IyLNdYX+Xujv5Ur/r/dLnXulfypb+l3+Y/d7oqq/eu62/in7pN7V9GvQj4iIW30DkQTB
+   eJztlsEJADAIxMT9h+4QUj29BPKVPKQ1IyIRjd0K/bPQP4tL/6/3qzrXpV+VK/1b/uPt90RXf/fca/0q+1S9q+mvQT8iKvsAHEUEwQ==
   </data>
  </layer>
  <layer name="spawn" width="48" height="27">
   <data encoding="base64" compression="zlib">
-   eJztzjEJAAAIADDTav8GVhAfEbYEiwCA3/I6MFDXAQAAgKUGmL4Azg==
+   eJztzjEBAAAIAyDTav8GVvDzGCSgCgAgV38HDuY7AABAtAXLYADO
   </data>
  </layer>
- <layer name="floor" width="48" height="27">
+ <layer name="floor" width="48" height="27" visible="0">
   <data encoding="base64" compression="zlib">
-   eJzt10EOgCAMBMD+/20qR+NvjAcTYwILZGvB7GHPTGhpSjKz5JjVOdcZh2N2x8gvv/z/928gvf4FhOVHM77Xj2a7+mcOf0s/R/rf7+P2t/RzpD+3/7D9z1q2zJNR/Ln98ys/8z2w+73Gz6wH+77ln8+P9p9S0I5TCss/+v9Xfvnllz/CfwKs6i25
+   eJzt10EOgCAMBMD+/20KR+NvvBoTWCktRdnD3iehNNssItkxu3M87fSv4T8dcziGfvrp/78/gWj9G4iVH+14rR/tds7PN/wt8xzpf/6PUv+Z1f+2v/Wa72/Zsk9m8Zf65yi/5X+wnndN/4/yW90v9Mf6Uf+pBXWcWla5f+mnX5sLymYtuQ==
   </data>
  </layer>
 </map>

@@ -42,6 +42,6 @@ void Screen::TitleScreen::Draw(System::Window &window){
 	
 	// Draw the string
 		//System::getWindow().drawText(200, 200, "Press Left Shift", 36, "arial.ttf");
-	window.drawText(Map::getMap().getPixelWidth()/2 - 400, 120, "Press The Any Key", 48, "PressStart2P.ttf");
+	window.drawText(Map::getMap().getPixelWidth()/2 - 450, 240, "Press The Any Key", 48, "PressStart2P.ttf");
 	
 }

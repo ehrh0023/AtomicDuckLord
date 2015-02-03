@@ -4,7 +4,7 @@
 Audio::Sound::Sound(std::string file_name)
 {
 	buffer = sf::SoundBuffer();
-	buffer.loadFromFile("file_name");
+	buffer.loadFromFile(file_name);
 	sound.setBuffer(buffer);
 
 	length = buffer.getDuration().asSeconds();

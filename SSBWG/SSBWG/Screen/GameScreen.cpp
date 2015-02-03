@@ -15,7 +15,7 @@ Screen::GameScreen::~GameScreen(void)
 
 void Screen::GameScreen::LoadScreen()
 {
-	Entity::Duck* duck = new Entity::Duck(Map::getMap().getPixelWidth()/2 - 19, 160, 38,40);
+	Entity::Duck* duck = new Entity::Duck(Map::getMap().getPixelWidth()/2 - 19, 280, 38,40);
 	Entity::getEntityManager().add(duck);
 }
 

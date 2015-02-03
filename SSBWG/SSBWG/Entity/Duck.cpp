@@ -5,7 +5,10 @@
 
 Entity::Duck::Duck(float posX,float posY,float width,float height)
 	:Entity(posX, posY, width, height),
-	image("duck.png")
+	image("duck.png"),
+	countdown("beep.wav"),
+	bounceSound("squeak.wav"),
+	hitSound("squawk.wav")
 {
 	col = new Collision::AABBCollider(body, this);
 
@@ -43,8 +46,20 @@ void Entity::Duck::update()
 
 	if(timeOfDeath <= System::Time::getInstance().time())
 	{
-		removeThis();
-		EntityManager::getInstance().add(new Nuke(getCenter().x));
+		static bool flag = true;
+
+		if(flag)
+		{
+			countdown.Play();
+			flag = false;
+		}
+
+		if(!countdown.isPlaying())
+		{
+			removeThis();
+			EntityManager::getInstance().add(new Nuke(getCenter().x));
+			flag = true;
+		}
 	}
 }
 
@@ -60,12 +75,18 @@ void Entity::Duck::onCollideLeft(Entity* other)
 		velocity.x = 0;
 		unscaledVelocity.x = maxSpeed;
 		unscaledVelocity.y -= 2*jumpPower/3;
+		
+		hitSound.setPitch(randf(.7, 1.3));
+		hitSound.Play();
 	}
 	else if(velocity.x < 0) 
 	{
 		velocity.x = 0;
 		unscaledVelocity.x = abs(unscaledVelocity.x * .75);
 		unscaledVelocity.y -= jumpPower/3;
+		
+		bounceSound.setPitch(randf(.7, 1.3));
+		bounceSound.Play();
 	}
 	heading.x = Direction::right;
 }
@@ -76,12 +97,18 @@ void Entity::Duck::onCollideRight(Entity* other)
 		velocity.x = 0;
 		unscaledVelocity.x = -maxSpeed;
 		unscaledVelocity.y -= 2*jumpPower/3;
+
+		hitSound.setPitch(randf(.7, 1.3));
+		hitSound.Play();
 	}
 	else if(velocity.x > 0) 
 	{
 		velocity.x = 0;
 		unscaledVelocity.x = -abs(unscaledVelocity.x * .75);
 		unscaledVelocity.y -= jumpPower/3;
+		
+		bounceSound.setPitch(randf(.7, 1.3));
+		bounceSound.Play();
 	}
 	
 	heading.x = Direction::left;
@@ -101,11 +128,17 @@ void Entity::Duck::onCollideUp(Entity* other)
 		{
 			unscaledVelocity.x = -maxSpeed;//2*maxSpeed/3;
 		}
+		
+		hitSound.setPitch(randf(.7, 1.3));
+		hitSound.Play();
 	}
 	else if(velocity.y < 0) 
 	{
 		velocity.y = 0;
 		unscaledVelocity.y = abs(unscaledVelocity.y *.6);
+		
+		bounceSound.setPitch(randf(.7, 1.3));
+		bounceSound.Play();
 	}
 }
 void Entity::Duck::onCollideDown(Entity* other) 
@@ -123,10 +156,16 @@ void Entity::Duck::onCollideDown(Entity* other)
 		{
 			unscaledVelocity.x = -maxSpeed;//2*maxSpeed/3;
 		}
+		
+		hitSound.setPitch(randf(.7, 1.3));
+		hitSound.Play();
 	}
 	else if(velocity.y > 0)
 	{ 
 		velocity.y = 0;
 		unscaledVelocity.y = -abs(unscaledVelocity.y *.8);
+
+		bounceSound.setPitch(randf(.7, 1.3));
+		bounceSound.Play();
 	}
 }

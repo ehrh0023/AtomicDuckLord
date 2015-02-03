@@ -14,8 +14,9 @@ namespace Entity
 		float jumpPower;
 		float timeOfDeath;
 		float rotation;
-//		Audio::Sound bounceSound;
-//		Audio::Sound hitSound;
+		Audio::Sound bounceSound;
+		Audio::Sound hitSound;
+		Audio::Sound countdown;
 	
 	public:
 		Duck(float posX,float posY,float width,float height);

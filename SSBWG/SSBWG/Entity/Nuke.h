@@ -3,6 +3,7 @@
 #include "../Collision/AABBCollider.h"
 #include "../System/Time.h"
 #include "../Graphics/Image.h"
+#include "../Audio/Sound.h"
 
 namespace Entity
 {
@@ -10,6 +11,8 @@ namespace Entity
 	{
 		Graphics::Image image;
 		float timeOfDeath;
+		
+		Audio::Sound sound;
 	
 	public:
 		Nuke(float centerX);

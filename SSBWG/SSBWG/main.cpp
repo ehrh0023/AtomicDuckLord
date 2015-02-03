@@ -33,7 +33,7 @@ int main()
 	System::Time& timer = System::Time::getInstance();
 	Graphics::Image image("cute_image.png");
 
-	Audio::Music m("Quick_Steps.ogg");
+	Audio::Music m("Spree_On.ogg");
 	m.setLooping(true);
 	m.Play();
 
