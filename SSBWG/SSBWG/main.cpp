@@ -31,7 +31,8 @@ int main()
 	Screen::ScreenManager::getInstance().Initialize(titleScreen); //start at the titleScreen
 
 	System::Time& timer = System::Time::getInstance();
-	Graphics::Image image("cute_image.png");
+	Graphics::Image redkeys("redkeys.png");
+	Graphics::Image bluekeys("bluekeys.png");
 
 	Audio::Music m("Spree_On.ogg");
 	m.setLooping(true);
@@ -67,6 +68,8 @@ int main()
 
 		// Draw the sprite
 		Screen::ScreenManager::getInstance().Draw(System::getWindow());
+		System::getWindow().drawImage(redkeys, Vector2f(70, 820), 4, 4);
+		System::getWindow().drawImage(bluekeys, Vector2f(1660, 820), 4, 4);
 
 		// Update the window
 		System::getWindow().display();

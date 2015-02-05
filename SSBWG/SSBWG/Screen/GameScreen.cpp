@@ -34,6 +34,5 @@ void Screen::GameScreen::Draw(System::Window& window)
 
 	Map::getMap().draw(System::getWindow());
 	Entity::getEntityManager().draw(window);
-	
-	
+	window.drawText(Map::getMap().getPixelWidth()/2 - 466, 60, "Fear Your Atomic Duck Lord", 36, "PressStart2P.ttf");
 }

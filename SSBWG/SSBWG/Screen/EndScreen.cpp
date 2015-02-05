@@ -47,13 +47,13 @@ void Screen::EndScreen::Draw(System::Window& window)
 	switch(result)
 	{
 	case 1:
-		window.drawText(Map::getMap().getPixelWidth()/2 - 180, 240, "Red Wins", 48, "PressStart2P.ttf");
+		window.drawText(Map::getMap().getPixelWidth()/2 - 170, 240, "Red Wins", 48, "PressStart2P.ttf");
 		break;
 	case 2:
-		window.drawText(Map::getMap().getPixelWidth()/2 - 200, 240, "Blue Wins", 48, "PressStart2P.ttf");
+		window.drawText(Map::getMap().getPixelWidth()/2 - 210, 240, "Blue Wins", 48, "PressStart2P.ttf");
 		break;
 	case 3:
-		window.drawText(Map::getMap().getPixelWidth()/2 - 280, 240, "Duck Lord Wins", 48, "PressStart2P.ttf");
+		window.drawText(Map::getMap().getPixelWidth()/2 - 335, 240, "Duck Lord Wins", 48, "PressStart2P.ttf");
 		break;
 	default:
 		window.drawText(Map::getMap().getPixelWidth()/2 - 100, 240, "Sod Off", 48, "PressStart2P.ttf");
