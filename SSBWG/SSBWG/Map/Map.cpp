@@ -28,6 +28,22 @@ int Map::Map::loadMap(std::string fileName)
 	drawImage.setSpriteSheet("tiles.png");
 	drawImage.addFrames(getTileWidth(), getTileHeight());
 	//spawnEntities();
+
+	if(world.empty())
+	{
+		world.push_back(Rect(0, 0, 1920, 180));
+		world.push_back(Rect(0, 160, 40, 400));
+		world.push_back(Rect(1880, 160, 40, 400));
+		world.push_back(Rect(1720, 560, 160, 320));
+		world.push_back(Rect(1560, 720, 160, 160));
+		world.push_back(Rect(40, 560, 160, 320));
+		world.push_back(Rect(200, 720, 160, 160));
+		world.push_back(Rect(0, 880, 1920, 200));
+		world.push_back(Rect(360, 400, 320, 80));
+		world.push_back(Rect(840, 640, 240, 80));
+		world.push_back(Rect(1240, 400, 320, 80));
+	}
+
 	return 0;
 }
 
@@ -56,6 +72,12 @@ void Map::Map::draw(System::Window& window)
 
 void Map::Map::collide(Entity::Entity* entity)
 {
+	for(int i = 0; i < world.size(); i++)
+	{
+		Collision::AABBCollider tile(world[i]);
+		entity->getCollider()->collide(&tile);
+	}
+	/*
 	int ymin = (entity->getBody().getTop() + entity->getVelocity().y) / getTileHeight();
 	int	ymax = (entity->getBody().getBottom() + entity->getVelocity().y) / getTileHeight() + 1;
 
@@ -72,7 +94,7 @@ void Map::Map::collide(Entity::Entity* entity)
 				entity->getCollider()->collide(&tile);
 			}
 		}
-	}
+	}*/
 }
 
 int Map::Map::getWidth()

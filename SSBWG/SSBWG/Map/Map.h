@@ -41,6 +41,7 @@ namespace Map
 		std::vector<const Tmx::Layer*> drawLayers;
 		
 		Graphics::Sprite drawImage;
+		std::vector<Rect> world;
 
 	public:
 		static Map& getInstance()
