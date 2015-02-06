@@ -18,6 +18,8 @@ namespace System
 		sf::RenderWindow window;
 		Keyboard keyboard;
 		Mouse mouse;
+		float globalXScale;
+		float globalYScale;
 		
 		Window() 
 			:window(sf::VideoMode(100, 100), "Game")
