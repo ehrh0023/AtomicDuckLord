@@ -18,8 +18,8 @@ bool System::Window::drawText(Vector2f position, std::string text, int size, std
 		return false;
 
 	sf::Text sftext(text, sffont, size);
-	sftext.setPosition(position.x, position.y);
-	sftext.setScale(globalXScale * globalXScale, globalYScale * globalYScale);
+	sftext.setPosition(globalXScale * position.x,globalYScale * position.y);
+	sftext.setScale(globalXScale, globalYScale);
 	window.draw(sftext);
 
 	return true;
@@ -43,7 +43,7 @@ bool System::Window::drawRect(Rect rect)
 {
 	sf::RectangleShape sfrect = sf::RectangleShape(sf::Vector2f(rect.getWidth(), rect.getHeight()));
 	sfrect.setFillColor(sf::Color::Magenta);
-	sfrect.setPosition(rect.getLeft() * globalXScale, rect.getTop() * globalXScale);
+	sfrect.setPosition(rect.getLeft() * globalXScale, rect.getTop() * globalYScale);
 	sfrect.setScale(globalXScale, globalYScale);
 	window.draw(sfrect);
 
@@ -66,7 +66,7 @@ bool System::Window::drawSprite(Graphics::Sprite sprite,  Vector2f position, int
 	sf::Sprite sp(sprite.tex->img);
 	Rect r = sprite.getFrame(frame);
 	sp.setTextureRect(sf::IntRect(r.getLeft(), r.getTop(), r.getWidth(), r.getHeight()));
-	sp.setPosition(position.x * globalXScale, position.y * globalXScale);
+	sp.setPosition(position.x * globalXScale, position.y * globalYScale);
 	sp.setScale(globalXScale, globalYScale);
 	window.draw(sp);
     return true;
@@ -75,7 +75,7 @@ bool System::Window::drawSprite(Graphics::Sprite sprite,  Vector2f position, int
 bool System::Window::drawImage(Graphics::Image image, Vector2f position, float scaleX, float scaleY, float degrees) 
 {
 	sf::Sprite sprite(image.img);
-	sprite.setPosition(position.x * globalXScale + (scaleX<0) * -scaleX * image.getWidth() * globalXScale, position.y * globalYScale + (scaleY<0) * -scaleY * image.getHeight() * globalYScale);
+	sprite.setPosition((position.x + (scaleX<0) * -scaleX * image.getWidth()) * globalXScale, (position.y + (scaleY<0) * -scaleY * image.getHeight()) * globalYScale);
 	sprite.setScale(scaleX * globalXScale, scaleY * globalYScale);
 //	sprite.setRotation(degrees);
 	window.draw(sprite);
@@ -148,13 +148,13 @@ System::Mouse& System::Window::getMouse()
 void System::Window::initialize(unsigned int width, unsigned int height, std::string name)
 {
 	window.create(sf::VideoMode(width, height), name);
-	globalXScale = window.getSize().x / 1920;
-	globalYScale = window.getSize().y / 1080;
+	globalXScale = window.getSize().x / 1920.0;
+	globalYScale = window.getSize().y / 1080.0;
 }
 
 void System::Window::initializeFullScreen(unsigned int width, unsigned int height, std::string name)
 {
 	window.create(sf::VideoMode(width, height), name, sf::Style::Fullscreen);
-	globalXScale = window.getSize().x / 1920;
-	globalYScale = window.getSize().y / 1080;
+	globalXScale = window.getSize().x / 1920.0;
+	globalYScale = window.getSize().y / 1080.0;
 }
