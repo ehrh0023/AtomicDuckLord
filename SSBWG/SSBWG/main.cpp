@@ -22,7 +22,7 @@ int main()
 {
 
 	// Create the main window
-	System::Window::getInstance().initializeFullScreen(1920, 1080, "SFML window");
+	System::Window::getInstance().initializeFullScreen(1920, 1080, "Atomic Duck Lord");
 	
 	Map::getMap().loadMap("test.tmx");
 
