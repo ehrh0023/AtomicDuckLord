@@ -20,18 +20,11 @@ Entity::Nuke::Nuke(float centerX)
 
 void Entity::Nuke::update()
 {	
-	if(EntityManager::getInstance().getBlue() != NULL && EntityManager::getInstance().getBlue()->getBody().overlaps(getBody()))
-		EntityManager::getInstance().getBlue()->removeThis();
-	
-	if(EntityManager::getInstance().getRed() != NULL && EntityManager::getInstance().getRed()->getBody().overlaps(getBody()))
-		EntityManager::getInstance().getRed()->removeThis();
 
 	if(timeOfDeath <= System::Time::getInstance().time())
 	{
 		removeThis();
-		
-		if((getEntityManager().getRed() != NULL && !getEntityManager().getRed()->shouldRemoveThis()) 
-			&& (getEntityManager().getBlue() != NULL && !getEntityManager().getBlue()->shouldRemoveThis()))
+		if(getEntityManager().getRed() && getEntityManager().getBlue())
 		{
 			Screen::getScreenManager().LoadScreen(new Screen::GameScreen());
 		}
@@ -39,6 +32,14 @@ void Entity::Nuke::update()
 		{
 			Screen::getScreenManager().LoadScreen(new Screen::EndScreen());
 		}
+	}
+	else
+	{
+		if(EntityManager::getInstance().getBlue() != NULL && EntityManager::getInstance().getBlue()->getBody().overlaps(getBody()))
+			EntityManager::getInstance().getBlue()->removeThis();
+	
+		if(EntityManager::getInstance().getRed() != NULL && EntityManager::getInstance().getRed()->getBody().overlaps(getBody()))
+			EntityManager::getInstance().getRed()->removeThis();
 	}
 }
 

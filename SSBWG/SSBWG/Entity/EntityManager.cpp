@@ -99,9 +99,9 @@ void Entity::EntityManager::cull()
 			if(entities[i]->shouldRemoveThis())
 			{
 				if(entities[i] == red)
-					red == NULL;
+					red = NULL;
 				if(entities[i] == blue)
-					blue == NULL;
+					blue = NULL;
 				delete entities[i];
 				entities.erase(entities.begin() + i);
 				i--;
